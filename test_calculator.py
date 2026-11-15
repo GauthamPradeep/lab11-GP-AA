@@ -20,9 +20,9 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(mul(0, 10), 0)
 
     def test_divide(self): # 3 assertions
-        self.assertEqual(div(10, 2), 5)
-        self.assertEqual(div(-6, 3), -2)
-        self.assertEqual(div(0, 5), 0)
+        self.assertEqual(div(2, 10), 5)
+        self.assertEqual(div(3, -6), -2)
+        self.assertEqual(div(5, 0), 0)
 
     ######## Partner 2
     def test_divide_by_zero(self):
@@ -31,20 +31,20 @@ class TestCalculator(unittest.TestCase):
 
     def test_logarithm(self):
         self.assertAlmostEqual(logarithm(2, 8), 3)
-        self.assertAlmostEqual(logarithm(g(10, 100), 2)
+        self.assertAlmostEqual(logarithm(10, 100), 2)
 
     def test_log_invalid_base(self):
+        with self.assertRaises(ZeroDivisionError):
+            logarithm(1, 5)
         with self.assertRaises(ValueError):
-            logarithm((1, 5)
+            logarithm(0, 5)
         with self.assertRaises(ValueError):
-            logarithm((0, 5)
-        with self.assertRaises(ValueError):
-            logarithm((-2, 5)
+            logarithm(-2, 5)
     
     ######## Partner 1
     def test_log_invalid_argument(self): # 1 assertion
         with self.assertRaises(ValueError):
-            logarithm((0, 5)
+            logarithm(0, 5)
 
     def test_hypotenuse(self): # 3 assertions
         self.assertEqual(hypotenuse(3, 4), 5)
